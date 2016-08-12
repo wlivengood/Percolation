@@ -1,3 +1,5 @@
+from __future__ import division
+from __future__ import print_function
 import percolation
 import time
 import random
@@ -21,7 +23,7 @@ def visualize(n):
             time.sleep(.5)
             print_grid(perc.grid)
     print_grid(perc.grid)
-    print("percolation threshold =", opens/(n*n))
+    print("percolation threshold: ", opens/(n*n))
 
 def montecarlo(N, T):
     perc_thresholds = []
@@ -34,7 +36,7 @@ def montecarlo(N, T):
                 perc.open(i,j)
                 opens += 1
         perc_threshold = opens/(N*N)
-        perc_thresholds.append(perc_threshold)
+        perc_thresholds.append(float(perc_threshold))
     mean_perc_threshold = sum(perc_thresholds)/len(perc_thresholds)
     print("Mean percolation threshold: ", mean_perc_threshold)
 
